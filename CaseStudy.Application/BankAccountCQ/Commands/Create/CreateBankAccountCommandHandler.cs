@@ -32,9 +32,9 @@ public class CreateBankAccountCommandHandler : ICommandHandler<CreateBankAccount
 
         var bank = new BankAccount()
         {
-            Name = (Name)request.Name,
-            BIC = (BIC)request.BIC,
-            IBAN = (IBAN)request.IBAN,
+            Name = new Name(request.Name),
+            BIC = new BIC(request.BIC),
+            IBAN = new IBAN(request.IBAN),
         };
 
         var output = await _bankRepository.AddAsync(bank, cancellationToken);

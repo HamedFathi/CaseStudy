@@ -1,4 +1,5 @@
 ﻿using HamedStack.CQRS;
+// ReSharper disable InconsistentNaming
 
 namespace CaseStudy.Application.BankAccountCQ.Commands.Create;
 

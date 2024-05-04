@@ -33,9 +33,9 @@ public class UpdateBankAccountCommandHandler : ICommandHandler<UpdateBankAccount
         var bank = new BankAccount()
         {
             Id = request.Id,
-            Name = (Name)request.Name,
-            BIC = (BIC)request.BIC,
-            IBAN = (IBAN)request.IBAN,
+            Name = new Name(request.Name),
+            BIC = new BIC(request.BIC),
+            IBAN = new IBAN(request.IBAN),
         };
 
         await _bankRepository.UpdateAsync(bank, cancellationToken);

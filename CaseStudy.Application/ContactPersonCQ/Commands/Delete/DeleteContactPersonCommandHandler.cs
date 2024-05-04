@@ -3,6 +3,7 @@ using FluentValidation;
 using HamedStack.CQRS;
 using HamedStack.TheRepository;
 using HamedStack.TheResult;
+using HamedStack.TheResult.FluentValidation;
 
 namespace CaseStudy.Application.ContactPersonCQ.Commands.Delete;
 
@@ -18,8 +19,25 @@ public class DeleteContactPersonCommandHandler : ICommandHandler<DeleteContactPe
         _unitOfWork = unitOfWork;
         _contactPersonValidator = contactPersonValidator;
     }
-    public Task<Result> Handle(DeleteContactPersonCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(DeleteContactPersonCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var validationResult = await _contactPersonValidator.ValidateAsync(request, cancellationToken);
+
+        if (!validationResult.IsValid)
+        {
+            return validationResult.ToResult();
+        }
+
+        var bank = await _contactPersonRepository.GetByIdAsync(request.Id, cancellationToken);
+
+        if (bank == null)
+        {
+            return Result.Failure("Id not found.");
+        }
+
+        await _contactPersonRepository.DeleteAsync(bank, cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+        return Result.Success("ContactPerson record deleted successfully.");
     }
 }

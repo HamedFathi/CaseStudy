@@ -3,7 +3,7 @@ using HamedStack.CQRS.FluentValidation;
 
 namespace CaseStudy.Application.BankAccountCQ.Queries.List;
 
-public class ListBankAccountQueryValidator : QueryValidator<ListBankAccountQuery, IEnumerable<BankAcountDTO>>
+public class ListBankAccountQueryValidator : QueryValidator<ListBankAccountQuery, IEnumerable<BankAccountDTO>>
 {
     public ListBankAccountQueryValidator()
     {

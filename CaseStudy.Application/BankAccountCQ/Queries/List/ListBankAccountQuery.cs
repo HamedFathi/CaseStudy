@@ -2,7 +2,7 @@
 
 namespace CaseStudy.Application.BankAccountCQ.Queries.List;
 
-public class ListBankAccountQuery : IQuery<IEnumerable<BankAcountDTO>>
+public class ListBankAccountQuery : IQuery<IEnumerable<BankAccountDTO>>
 {
     public int VendorId { get; set; }
     public int? PageIndex { get; set; }

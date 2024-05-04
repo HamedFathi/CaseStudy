@@ -1,6 +1,7 @@
-﻿namespace CaseStudy.Application.BankAccountCQ;
+﻿// ReSharper disable InconsistentNaming
+namespace CaseStudy.Application.BankAccountCQ;
 
-public class BankAcountDTO
+public class BankAccountDTO
 {
     public int VendorId { get; set; }
     public int Id { get; set; }
