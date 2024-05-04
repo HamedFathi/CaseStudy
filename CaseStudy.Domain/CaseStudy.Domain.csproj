@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="HamedStack.AggregateRoot" Version="1.0.3" />
+		<PackageReference Include="HamedStack.Enumeration" Version="1.0.1" />
+		<PackageReference Include="HamedStack.Ensure" Version="1.0.0" />
+		<PackageReference Include="HamedStack.Result" Version="1.0.8" />
+		<PackageReference Include="HamedStack.Specification" Version="1.0.1" />
+		<PackageReference Include="IBAN4Net" Version="2.0.6" />
+	</ItemGroup>
+</Project>
