@@ -22,5 +22,7 @@
 		<ProjectReference Include="..\CaseStudy.Domain\CaseStudy.Domain.csproj" />
 		<ProjectReference Include="..\CaseStudy.Infrastructure\CaseStudy.Infrastructure.csproj" />
 	</ItemGroup>
-
+	<ItemGroup>
+		<InternalsVisibleTo Include="CaseStudy.IntegrationTests" />
+	</ItemGroup>
 </Project>
