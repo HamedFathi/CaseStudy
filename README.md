@@ -33,3 +33,12 @@ The API should check if the user is authenticated and has the permission to mana
 Data can be stored in a backend of your choice (for example sqlite).
 
 The service should use a cache like redis.
+
+---
+
+If .NET Aspire shows a port issue.
+
+```
+net stop hns
+net start hns
+```
