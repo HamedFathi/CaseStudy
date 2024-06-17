@@ -30,7 +30,7 @@ public class ListBankAccountQueryHandler : IQueryHandler<ListBankAccountQuery, I
 
         if (!validationResult.IsValid)
         {
-            return (Result<IEnumerable<BankAccountDTO>>)validationResult.ToResult();
+            return validationResult.ToResult<IEnumerable<BankAccountDTO>>(default);
         }
 
         var cachedData = await _distributedCache.GetObjectAsync<List<BankAccount>>(nameof(ListVendorQuery), cancellationToken: cancellationToken);

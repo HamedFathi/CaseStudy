@@ -21,6 +21,7 @@
 		<ProjectReference Include="..\CaseStudy.Application\CaseStudy.Application.csproj" />
 		<ProjectReference Include="..\CaseStudy.Domain\CaseStudy.Domain.csproj" />
 		<ProjectReference Include="..\CaseStudy.Infrastructure\CaseStudy.Infrastructure.csproj" />
+		<ProjectReference Include="..\CaseStudy.ServiceDefaults\CaseStudy.ServiceDefaults.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<InternalsVisibleTo Include="CaseStudy.IntegrationTests" />

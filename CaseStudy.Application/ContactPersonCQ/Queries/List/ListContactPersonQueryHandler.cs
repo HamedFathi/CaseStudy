@@ -29,7 +29,7 @@ public class ListContactPersonQueryHandler : IQueryHandler<ListContactPersonQuer
 
         if (!validationResult.IsValid)
         {
-            return (Result<IEnumerable<ContactPersonDTO>>)validationResult.ToResult();
+            return validationResult.ToResult<IEnumerable<ContactPersonDTO>>(default);
         }
 
         var cachedData = await _distributedCache.GetObjectAsync<List<ContactPerson>>(nameof(ListVendorQuery), cancellationToken: cancellationToken);

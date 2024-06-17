@@ -26,7 +26,7 @@ public class CreateContactPersonCommandHandler : ICommandHandler<CreateContactPe
 
         if (!validationResult.IsValid)
         {
-            return (Result<int>)validationResult.ToResult();
+            return validationResult.ToResult<int>(default);
         }
 
         var bank = new ContactPerson()

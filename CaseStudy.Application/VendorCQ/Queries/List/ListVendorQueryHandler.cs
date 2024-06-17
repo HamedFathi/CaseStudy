@@ -30,7 +30,7 @@ public class ListVendorQueryHandler : IQueryHandler<ListVendorQuery, IEnumerable
 
         if (!validationResult.IsValid)
         {
-            return (Result<IEnumerable<VendorDTO>>)validationResult.ToResult();
+            return validationResult.ToResult<IEnumerable<VendorDTO>>(default);
         }
 
         var cachedData = await _distributedCache.GetObjectAsync<List<Vendor>>(nameof(ListVendorQuery), cancellationToken: cancellationToken);

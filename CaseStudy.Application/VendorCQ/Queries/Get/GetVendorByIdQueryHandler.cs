@@ -30,10 +30,10 @@ public class GetVendorByIdQueryHandler : IQueryHandler<GetVendorByIdQuery, Vendo
 
         if (!validationResult.IsValid)
         {
-            return (Result<VendorDTO>)validationResult.ToResult();
+            return validationResult.ToResult<VendorDTO>(default);
         }
 
-        var cachedData = await _distributedCache.GetObjectAsync<Vendor>(nameof(ListVendorQuery), cancellationToken: cancellationToken);
+        var cachedData = await _distributedCache.GetObjectAsync<Vendor>(nameof(GetVendorByIdQuery), cancellationToken: cancellationToken);
         if (cachedData != null)
         {
             return Result<VendorDTO>.Success(MapTo(cachedData));
@@ -50,7 +50,7 @@ public class GetVendorByIdQueryHandler : IQueryHandler<GetVendorByIdQuery, Vendo
         {
             AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(5)
         };
-        await _distributedCache.SetObjectAsync(nameof(ListVendorQuery), output, entryOptions: options, cancellationToken: cancellationToken);
+        await _distributedCache.SetObjectAsync(nameof(GetVendorByIdQuery), output, entryOptions: options, cancellationToken: cancellationToken);
 
         return Result<VendorDTO>.Success(MapTo(output));
     }

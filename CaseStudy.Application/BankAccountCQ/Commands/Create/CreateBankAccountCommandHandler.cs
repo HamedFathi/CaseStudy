@@ -27,7 +27,7 @@ public class CreateBankAccountCommandHandler : ICommandHandler<CreateBankAccount
 
         if (!validationResult.IsValid)
         {
-            return (Result<int>)validationResult.ToResult();
+            return validationResult.ToResult<int>(default);
         }
 
         var bank = new BankAccount()

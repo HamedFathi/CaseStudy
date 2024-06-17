@@ -28,7 +28,7 @@ public class CreateVendorCommandHandler : ICommandHandler<CreateVendorCommand, i
 
         if (!validationResult.IsValid)
         {
-            return (Result<int>)validationResult.ToResult();
+            return validationResult.ToResult<int>(default);
         }
 
         var vendor = new Vendor()

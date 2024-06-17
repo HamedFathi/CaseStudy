@@ -29,7 +29,7 @@ public class GetBankAccountByIdQueryHandler : IQueryHandler<GetBankAccountByIdQu
 
         if (!validationResult.IsValid)
         {
-            return (Result<BankAccountDTO>)validationResult.ToResult();
+            return validationResult.ToResult<BankAccountDTO>(default);
         }
 
         var cachedData = await _distributedCache.GetObjectAsync<BankAccount>(nameof(ListVendorQuery), cancellationToken: cancellationToken);

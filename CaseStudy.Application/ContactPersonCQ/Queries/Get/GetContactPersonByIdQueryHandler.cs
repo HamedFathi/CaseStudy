@@ -28,7 +28,7 @@ public class GetContactPersonByIdQueryHandler : IQueryHandler<GetContactPersonBy
 
         if (!validationResult.IsValid)
         {
-            return (Result<ContactPersonDTO>)validationResult.ToResult();
+            return validationResult.ToResult<ContactPersonDTO>(default);
         }
 
         var cachedData = await _distributedCache.GetObjectAsync<ContactPerson>(nameof(ListVendorQuery), cancellationToken: cancellationToken);
